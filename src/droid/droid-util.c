@@ -761,7 +761,8 @@ static void add_o_ports(pa_droid_mapping *am) {
 
         if (devices & cur_device) {
 
-            pa_assert_se(pa_droid_output_port_name(cur_device, &name));
+//            pa_assert_se(pa_droid_output_port_name(cur_device, &name));
+            pa_droid_output_port_name(cur_device, &name);
 
             if (!(p = pa_hashmap_get(am->profile_set->all_ports, name))) {
 
@@ -778,7 +779,8 @@ static void add_o_ports(pa_droid_mapping *am) {
 
     /* Combo devices, route to multiple routing targets simultaneously. */
     if (am->output->devices & combo_devices) {
-        pa_assert_se(pa_droid_output_port_name(combo_devices, &name));
+//        pa_assert_se(pa_droid_output_port_name(combo_devices, &name));
+        pa_droid_output_port_name(combo_devices, &name);
         if (!(p = pa_hashmap_get(am->profile_set->all_ports, name))) {
             p = create_o_port(am, combo_devices, name, NULL);
             /* Reset priority to default. */
@@ -829,7 +831,8 @@ static void add_i_ports(pa_droid_mapping *am) {
 #endif
 #endif
 
-            pa_assert_se(pa_droid_input_port_name(cur_device, &name));
+//            pa_assert_se(pa_droid_input_port_name(cur_device, &name));
+            pa_droid_input_port_name(cur_device, &name);
 
             if (!(p = pa_hashmap_get(am->profile_set->all_ports, name))) {
                 pa_log_debug("  New input port %s", name);
