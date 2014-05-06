@@ -477,8 +477,8 @@ bool pa_parse_droid_audio_config(const char *filename, pa_droid_config_audio *co
             else if (pa_streq(v, ATTACHED_INPUT_DEVICES_TAG))
                 success = parse_devices(val, false, &config->global_config.attached_input_devices);
             else {
-                pa_log(__FILE__ ": [%s:%u] failed to parse line - unknown config entry %s", filename, n, v);
-                success = false;
+                //pa_log(__FILE__ ": [%s:%u] failed to parse line - unknown config entry %s", filename, n, v);
+                //success = false;
             }
 
             if (!success) {
