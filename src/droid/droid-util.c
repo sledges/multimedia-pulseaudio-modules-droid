@@ -479,6 +479,7 @@ bool pa_parse_droid_audio_config(const char *filename, pa_droid_config_audio *co
             else {
                 //pa_log(__FILE__ ": [%s:%u] failed to parse line - unknown config entry %s", filename, n, v);
                 //success = false;
+                success = true;
             }
 
             if (!success) {
