@@ -280,10 +280,6 @@ struct string_conversion string_conversion_table_audio_source_fancy[] = {
     { AUDIO_SOURCE_VOICE_COMMUNICATION,             "voice communication" },
     { AUDIO_SOURCE_REMOTE_SUBMIX,                   "remote submix" },
     { AUDIO_SOURCE_FM_TUNER,                        "fm tuner" },
-#ifdef QCOM_HARDWARE
-    { AUDIO_SOURCE_FM_RX,                           "fm rx" },
-    { AUDIO_SOURCE_FM_RX_A2DP,                      "fm rx a2dp" },
-#endif
     { (uint32_t)-1, NULL }
 };
 
