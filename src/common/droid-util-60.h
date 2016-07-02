@@ -107,10 +107,6 @@ uint32_t conversion_table_default_audio_source[][2] = {
     { AUDIO_DEVICE_IN_VOICE_CALL,                   AUDIO_SOURCE_VOICE_CALL },
     { AUDIO_DEVICE_IN_BACK_MIC,                     AUDIO_SOURCE_MIC },
     { AUDIO_DEVICE_IN_REMOTE_SUBMIX,                AUDIO_SOURCE_REMOTE_SUBMIX },
-#ifdef QCOM_HARDWARE
-    { AUDIO_DEVICE_IN_FM_RX,                        AUDIO_SOURCE_FM_RX },
-    { AUDIO_DEVICE_IN_FM_RX_A2DP,                   AUDIO_SOURCE_FM_RX_A2DP },
-#endif
     { AUDIO_DEVICE_IN_ALL,                          AUDIO_SOURCE_DEFAULT }
 };
 
@@ -153,7 +149,6 @@ struct string_conversion string_conversion_table_output_device[] = {
     STRING_ENTRY(AUDIO_DEVICE_OUT_SPEAKER_SAFE),
     STRING_ENTRY(AUDIO_DEVICE_OUT_IP),             // This was added in Android 6.0
 #ifdef QCOM_HARDWARE
-    STRING_ENTRY(AUDIO_DEVICE_OUT_FM_TX),
     STRING_ENTRY(AUDIO_DEVICE_OUT_PROXY),
 #endif
     /* Combination entries consisting of multiple devices defined above.
@@ -195,7 +190,6 @@ struct string_conversion string_conversion_table_output_device_fancy[] = {
     { AUDIO_DEVICE_OUT_SPEAKER_SAFE,                "output-speaker_safe" },
     { AUDIO_DEVICE_OUT_IP,                          "output-speaker_ip" },              // This was added in Android 6.0
 #ifdef QCOM_HARDWARE
-    { AUDIO_DEVICE_OUT_FM_TX,                       "output-fm_tx" },
     { AUDIO_DEVICE_OUT_PROXY,                       "output-proxy" },
 #endif
     { 0, NULL }
@@ -232,8 +226,6 @@ struct string_conversion string_conversion_table_input_device[] = {
     STRING_ENTRY(AUDIO_DEVICE_IN_SECONDARY_MIC),
 #endif
     STRING_ENTRY(AUDIO_DEVICE_IN_PROXY),
-    STRING_ENTRY(AUDIO_DEVICE_IN_FM_RX),
-    STRING_ENTRY(AUDIO_DEVICE_IN_FM_RX_A2DP),
 #endif
     STRING_ENTRY(AUDIO_DEVICE_IN_DEFAULT),
     /* Combination entries consisting of multiple devices defined above.
@@ -272,8 +264,6 @@ struct string_conversion string_conversion_table_input_device_fancy[] = {
     { AUDIO_DEVICE_IN_SECONDARY_MIC,            "input-secondary_mic" },
 #endif
     { AUDIO_DEVICE_IN_PROXY,                    "input-proxy" },
-    { AUDIO_DEVICE_IN_FM_RX,                    "input-fm_rx" },
-    { AUDIO_DEVICE_IN_FM_RX_A2DP,               "input-fm_rx_a2dp" },
 #endif
     { AUDIO_DEVICE_IN_DEFAULT,                  "input-default" },
     { 0, NULL }
@@ -313,7 +303,6 @@ struct string_conversion string_conversion_table_output_flag[] = {
     STRING_ENTRY(AUDIO_OUTPUT_FLAG_IEC958_NONAUDIO),    // This was added in Android 6.0
 #ifdef QCOM_HARDWARE
     STRING_ENTRY(AUDIO_OUTPUT_FLAG_VOIP_RX),
-    STRING_ENTRY(AUDIO_OUTPUT_FLAG_INCALL_MUSIC),
     STRING_ENTRY(AUDIO_OUTPUT_FLAG_COMPRESS_PASSTHROUGH),
 #endif
     { 0, NULL }
@@ -422,13 +411,11 @@ struct string_conversion string_conversion_table_format[] = {
     STRING_ENTRY(AUDIO_FORMAT_AAC_ADIF),
     STRING_ENTRY(AUDIO_FORMAT_EVRCB),
     STRING_ENTRY(AUDIO_FORMAT_EVRCWB),
-    STRING_ENTRY(AUDIO_FORMAT_DTS_LBR),
     STRING_ENTRY(AUDIO_FORMAT_AMR_WB_PLUS),
     STRING_ENTRY(AUDIO_FORMAT_MP2),
     STRING_ENTRY(AUDIO_FORMAT_EVRCNW),
     STRING_ENTRY(AUDIO_FORMAT_PCM_OFFLOAD),
     STRING_ENTRY(AUDIO_FORMAT_FLAC),
-    STRING_ENTRY(AUDIO_FORMAT_E_AC3_JOC),
 #endif
     { 0, NULL }
 };
